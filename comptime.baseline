@@ -21427,7 +21427,7 @@ openjdk/generationCounters.ll 79899048
 openjdk/gif_err.ll 39280056
 openjdk/gifalloc.ll 171519395
 openjdk/gifdecoder.ll 233187617
-openjdk/globalCounter.ll 91127493
+openjdk/globalCounter.ll 91218748
 openjdk/globalDefinitions.ll 76613618
 openjdk/gnome_interface.ll 39982780
 openjdk/granularTimer.ll 52905445
