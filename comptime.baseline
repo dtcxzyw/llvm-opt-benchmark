@@ -1310,7 +1310,7 @@ abseil-cpp/test_matchers.cc.ll 2367516197
 abseil-cpp/test_util.cc.ll 65088416
 abseil-cpp/thread_identity.cc.ll 69265003
 abseil-cpp/thread_identity_test.cc.ll 616985515
-abseil-cpp/throw_delegate.cc.ll 68709329
+abseil-cpp/throw_delegate.cc.ll 68636979
 abseil-cpp/throw_delegate_test.cc.ll 792816783
 abseil-cpp/time.cc.ll 613284402
 abseil-cpp/time_test.cc.ll 7551501211
@@ -2559,7 +2559,7 @@ casadi/tinyxml_interface.cpp.ll 658077866
 casadi/tinyxml_interface_meta.cpp.ll 57341350
 casadi/tools.cpp.ll 305262717
 casadi/transpose.cpp.ll 417076628
-casadi/unary_mx.cpp.ll 1957683955
+casadi/unary_mx.cpp.ll 1959658202
 casadi/xml_file.cpp.ll 401004163
 casadi/xml_file_internal.cpp.ll 182374098
 casadi/xml_node.cpp.ll 563046675
@@ -5198,7 +5198,7 @@ csmith/FunctionInvocationUnary.cpp.ll 103763992
 csmith/FunctionInvocationUser.cpp.ll 1625292591
 csmith/KleeExtension.cpp.ll 87039785
 csmith/Lhs.cpp.ll 526553887
-csmith/LinearSequence.cpp.ll 224509952
+csmith/LinearSequence.cpp.ll 224737839
 csmith/OutputMgr.cpp.ll 234495629
 csmith/PartialExpander.cpp.ll 269390351
 csmith/Probabilities.cpp.ll 2036884443
@@ -7411,7 +7411,7 @@ folly/TimeoutManager.cpp.ll 133894180
 folly/TimeoutQueue.cpp.ll 448890207
 folly/TimerFD.cpp.ll 99390044
 folly/TimerFDTimeoutManager.cpp.ll 205172437
-folly/Try.cpp.ll 77999097
+folly/Try.cpp.ll 77920398
 folly/Unicode.cpp.ll 180099070
 folly/UniqueInstance.cpp.ll 227132674
 folly/Uri.cpp.ll 7001724109
@@ -8607,7 +8607,7 @@ gromacs/gpp_nextnb.cpp.ll 554208078
 gromacs/gpu_utils.cpp.ll 37285168
 gromacs/gpu_utils_impl.cpp.ll 38134668
 gromacs/gpueventsynchronizer_helpers.cpp.ll 36449476
-gromacs/gpuforcereduction_impl_stubs.cpp.ll 71518561
+gromacs/gpuforcereduction_impl_stubs.cpp.ll 71445412
 gromacs/gpuhaloexchange_impl.cpp.ll 72613621
 gromacs/grid.cpp.ll 1773537930
 gromacs/gridset.cpp.ll 591434074
@@ -9485,7 +9485,7 @@ grpc/rbac_policy.cc.ll 1005974841
 grpc/rbac_service_config_parser.cc.ll 4578448804
 grpc/resolve_address.cc.ll 112610798
 grpc/resolve_address_posix.cc.ll 739493100
-grpc/resolver.cc.ll 53487236
+grpc/resolver.cc.ll 53433261
 grpc/resolver_registry.cc.ll 690427980
 grpc/resource_quota.cc.ll 358407470
 grpc/retry_filter.cc.ll 249756762
@@ -12411,7 +12411,7 @@ libzmq/benchmark_radix_tree.cpp.ll 354872724
 libzmq/channel.cpp.ll 85217641
 libzmq/client.cpp.ll 73370433
 libzmq/ctx.cpp.ll 1741167777
-libzmq/dealer.cpp.ll 75941350
+libzmq/dealer.cpp.ll 75864188
 libzmq/decoder_allocators.cpp.ll 69480501
 libzmq/dgram.cpp.ll 80620784
 libzmq/dish.cpp.ll 307448012
@@ -18032,7 +18032,7 @@ ockam-rs/24riastqfxe8dcf.ll 2648723602
 ockam-rs/25xqde7eugs1ubax.ll 2433348735
 ockam-rs/26dvcjppdxj33hf9.ll 2647263053
 ockam-rs/274k60s1efyiyv8u.ll 2240833531
-ockam-rs/2792e1efuc9ozezj.ll 50537479
+ockam-rs/2792e1efuc9ozezj.ll 50486373
 ockam-rs/27nutj9k22uohtyi.ll 6170134726
 ockam-rs/28ikay5lv7l3owmf.ll 48681994
 ockam-rs/29qo5g7aujs2ujt.ll 3377123273
@@ -18486,7 +18486,7 @@ openblas/dgemv_n.c.ll 200236630
 openblas/dgemv_t.c.ll 202180002
 openblas/dgemv_thread_n.c.ll 87993377
 openblas/dgeqp3.c.ll 96666878
-openblas/dgeqr.c.ll 81216120
+openblas/dgeqr.c.ll 81130692
 openblas/dgeqrf.c.ll 74388645
 openblas/dgeqrfp.c.ll 74367292
 openblas/dgeqrt3.c.ll 96290735
@@ -19664,7 +19664,7 @@ opencv/gstreamer_buffer_utils.cpp.ll 35653626
 opencv/gstreamer_media_adapter.cpp.ll 35654067
 opencv/gstreamer_pipeline_facade.cpp.ll 35654543
 opencv/gstreamerenv.cpp.ll 42272106
-opencv/gstreamerpipeline.cpp.ll 80543275
+opencv/gstreamerpipeline.cpp.ll 80460273
 opencv/gstreamersource.cpp.ll 143034178
 opencv/gstreaming.cpp.ll 909694168
 opencv/gstreamingbackend.cpp.ll 3984857344
@@ -21001,7 +21001,7 @@ openjdk/awt_Insets.ll 33966714
 openjdk/awt_LoadLibrary.ll 54034612
 openjdk/awt_Mlib.ll 55940951
 openjdk/awt_Robot.ll 210082717
-openjdk/awt_Taskbar.ll 94494891
+openjdk/awt_Taskbar.ll 94398094
 openjdk/awt_UNIXToolkit.ll 76960128
 openjdk/awt_parseImage.ll 426176410
 openjdk/awt_util.ll 42255316
@@ -22191,7 +22191,7 @@ openjdk/stringDedupProcessor.ll 1054251309
 openjdk/stringDedupStat.ll 184322724
 openjdk/stringDedupStorageUse.ll 78123735
 openjdk/stringDedupTable.ll 1911005046
-openjdk/stringDedupThread.ll 60488191
+openjdk/stringDedupThread.ll 60427070
 openjdk/stringTable.ll 3031711869
 openjdk/stringUtils.ll 93308363
 openjdk/stringopts.ll 2458222438
@@ -24873,7 +24873,7 @@ openssl/libcrypto-lib-v3_no_ass.ll 37636521
 openssl/libcrypto-lib-v3_no_rev_avail.ll 37644369
 openssl/libcrypto-lib-v3_ocsp.ll 78448131
 openssl/libcrypto-lib-v3_pci.ll 118413198
-openssl/libcrypto-lib-v3_pcia.ll 44108864
+openssl/libcrypto-lib-v3_pcia.ll 44060554
 openssl/libcrypto-lib-v3_prn.ll 94514640
 openssl/libcrypto-lib-v3_purp.ll 407451203
 openssl/libcrypto-lib-v3_san.ll 214309281
@@ -25463,7 +25463,7 @@ openssl/libcrypto-shlib-v3_no_ass.ll 37636758
 openssl/libcrypto-shlib-v3_no_rev_avail.ll 37636862
 openssl/libcrypto-shlib-v3_ocsp.ll 78566407
 openssl/libcrypto-shlib-v3_pci.ll 118387856
-openssl/libcrypto-shlib-v3_pcia.ll 44109200
+openssl/libcrypto-shlib-v3_pcia.ll 44061085
 openssl/libcrypto-shlib-v3_prn.ll 94573968
 openssl/libcrypto-shlib-v3_purp.ll 407410512
 openssl/libcrypto-shlib-v3_san.ll 214216094
@@ -25832,7 +25832,7 @@ openssl/openssl-bin-crl.ll 224562353
 openssl/openssl-bin-crl2pkcs7.ll 96371303
 openssl/openssl-bin-dgst.ll 275283733
 openssl/openssl-bin-dhparam.ll 138066728
-openssl/openssl-bin-dsa.ll 109150005
+openssl/openssl-bin-dsa.ll 109036292
 openssl/openssl-bin-dsaparam.ll 92067797
 openssl/openssl-bin-ec.ll 124658457
 openssl/openssl-bin-ecparam.ll 142095708
@@ -34164,7 +34164,7 @@ wasmtime-rs/2x7mo86et5dkor5r.ll 34315175
 wasmtime-rs/2xenfhs03defnqn9.ll 38292124
 wasmtime-rs/2xfroc30eehmm9ja.ll 115344707
 wasmtime-rs/2xom1j8u7ry3umcw.ll 35653162
-wasmtime-rs/2xwknf2ovwm1te5p.ll 100797442
+wasmtime-rs/2xwknf2ovwm1te5p.ll 100695145
 wasmtime-rs/2y3wfjzj02o80wks.ll 992701728
 wasmtime-rs/2ynwm6j53i9c9n7x.ll 40825751
 wasmtime-rs/2yrd0463ii7ig05i.ll 58525817
